@@ -1,0 +1,15 @@
+.card-serie {
+    box-sizing: content-box;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 16px;
+    max-width: 325px;
+    min-height: 155px;
+}
+
+.card-image {
+    width: auto;
+    margin: auto;
+}

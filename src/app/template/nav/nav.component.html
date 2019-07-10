@@ -1,0 +1,21 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+
+      <div class="toolbar-content">
+        <span>PeekFlix</span>
+
+        <form class="form">
+
+          <mat-form-field>
+            <input type="text" matInput placeholder="Search" (keyup)="seriesService.filterDebounce.next($event.target.value)">
+            <mat-icon matSuffix>search</mat-icon>
+          </mat-form-field>
+
+        </form>
+      </div>
+
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

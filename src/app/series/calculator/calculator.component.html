@@ -1,0 +1,32 @@
+<h1 mat-dialog-title>Calcular tempo necessário</h1>
+<div class="content" mat-dialog-content>
+    <div *ngIf="!loading; else spinner">
+        <div *ngIf="nextSeason; else notNextSeason">
+            <form [formGroup]="formGroup">
+                <mat-form-field>
+                    <input matInput [min]="minDate" [max]="releaseDate" [matDatepicker]="picker"
+                        placeholder="Quando começar" formControlName="date">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+                <p>Tempo por dia</p>
+                <mat-form-field>
+                    <input matInput placeholder="Horas" formControlName="hours">
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput placeholder="Minutos" formControlName="minutes">
+                </mat-form-field>
+            </form>
+        </div>
+        <p *ngIf="error" class="info-error">Não dará tempo de assistir todos os episódios :(</p>
+    </div>
+</div>
+<ng-template #notNextSeason>
+    <p>Essa série ainda não tem próxima temporada.</p>
+</ng-template>
+
+<ng-template #spinner>
+    <div class="spinner">
+        <mat-spinner [diameter]="50"></mat-spinner>
+    </div>
+</ng-template>
